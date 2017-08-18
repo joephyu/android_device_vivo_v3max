@@ -1,0 +1,90 @@
+USE_CAMERA_STUB := true
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := msm8952
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := msm8952
+TARGET_BOARD_PLATFORM_GPU := adreno510
+
+# Architecture 
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 := arm64-v8a
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_SMP := true
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+
+# kernel
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=null androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk product.version=PD1523F_EX_A_2.7.22 androidboot.securebootkey=alpha androidboot.securebootkeyhash=60ba997fef6da9f05885fa11f1dd6d2a90d052a257a09c2075d7246cc73c0d43 androidboot.securebootkeyver=1
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x00000100
+
+## Filesystem
+BOARD_BOOT_DEVICE := /dev/block/mmcblk0p21
+BOARD_BOOT_FILESYSTEM := ext4
+BOARD_BOOT_FILESYSTEM_OPTIONS := rw
+BOARD_RECOVERY_DEVICE := /dev/block/mmcblk0p22
+BOARD_RECOVERY_FILESYSTEM := ext4
+BOARD_RECOVERY_FILESYSTEM_OPTIONS := rw
+BOARD_DATA_DEVICE := /dev/block/mmcblk0p49
+BOARD_DATA_FILESYSTEM := ext4
+BOARD_DATA_FILESYSTEM_OPTIONS := rw
+BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p24
+BOARD_SYSTEM_FILESYSTEM := ext4
+BOARD_SYSTEM_FILESYSTEM_OPTIONS := rw
+BOARD_CACHE_DEVICE := /dev/block/mmcblk0p25
+BOARD_CACHE_FILESYSTEM := ext4
+BOARD_CACHE_FILESYSTEM_OPTIONS := rw
+
+# Partition info
+BOARD_BOOTIMAGE_PARTITION_SIZE := 0x4000000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x4000000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0xCC800000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x64AD79C00
+BOARD_CACHEIMAGE_PARTITION_SIZE := 0x9600000
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+TARGET_PREBUILT_KERNEL := device/vivo/v3max/kernel
+TARGET_PREBUILT_DTB := device/vivo/v3max/dt.img
+TARGET_SYSTEM_PROP := device/vivo/v3max/system.prop
+
+# Recovery
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_RECOVERY_FSTAB := device/vivo/v3max/recovery/root/etc/recovery.fstab
+
+
+# Use this flag if the board has a ext4 partition larger than 2gb
+#TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_SDCARD_INTERNAL := true
+BOARD_USES_MMCUTILS := true
+BOARD_HAS_NO_MISC_PARTITION := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+BOARD_CUSTOM_BOOTIMG_MK :=  device/vivo/v3max/bootimg.mk
+
+# TWRP specific build flags
+TW_THEME := portrait_hdpi
+RECOVERY_SDCARD_ON_DATA := true
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 36600
+TW_DEFAULT_BRIGHTNESS := 16200
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_INCLUDE_NTFS_3G := true
+TW_EXCLUDE_SUPERSU := true
+TW_EXTRA_LANGUAGES := true
+TW_USE_NEW_MINADBD := true
+
+
